@@ -11,5 +11,8 @@ export declare class TransactionService {
         balance: number;
         transactionId: string;
     }>;
-    fetchAllTransactions(pageOptionsDto: PageOptionsDto): Promise<Transaction[]>;
+    fetchAllTransactions(pageOptionsDto: PageOptionsDto): Promise<{
+        list: Transaction[];
+        count: number;
+    }>;
 }

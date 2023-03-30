@@ -8,5 +8,8 @@ export declare class TransactionController {
         balance: number;
         transactionId: string;
     }>;
-    fetchTransactions(pageOptionsDto: PageOptionsDto): Promise<import("./transaction.entity").Transaction[]>;
+    fetchTransactions(pageOptionsDto: PageOptionsDto): Promise<{
+        list: import("./transaction.entity").Transaction[];
+        count: number;
+    }>;
 }

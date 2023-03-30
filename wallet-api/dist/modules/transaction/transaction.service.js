@@ -54,15 +54,15 @@ let TransactionService = class TransactionService {
     }
     async fetchAllTransactions(pageOptionsDto) {
         const { walletId, skip, limit } = pageOptionsDto;
-        console.log(walletId, skip, limit);
         try {
-            return this.transactionRepository.find({
+            const [list, count] = await this.transactionRepository.findAndCount({
                 where: { wallet: { id: walletId } },
                 select: ['id', 'amount', 'type', 'balance', 'date'],
                 order: { date: 'DESC' },
                 skip: skip,
                 take: limit,
             });
+            return { list, count };
         }
         catch (err) {
             throw new common_1.HttpException('Something went wrong. Please try again after sometime', common_1.HttpStatus.BAD_GATEWAY);
