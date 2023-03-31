@@ -22,11 +22,11 @@ AppModule = __decorate([
         imports: [
             typeorm_1.TypeOrmModule.forRoot({
                 type: 'mysql',
-                host: 'localhost',
+                host: 'sql.freedb.tech',
                 port: 3306,
-                username: 'root',
-                password: 'password1',
-                database: 'wallet',
+                username: 'freedb_meher',
+                password: '%6B#?b%s?MX4?G8',
+                database: 'freedb_wallet-database',
                 entities: [wallet_entity_1.Wallet, transaction_entity_1.Transaction],
                 synchronize: true,
             }),
