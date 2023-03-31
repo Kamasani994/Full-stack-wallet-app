@@ -74,7 +74,7 @@ export default function Transactions() {
     const walletId = localStorage.getItem("wallet_id");
     try {
       const { data } = await axios.get(
-        `http://localhost:3000/transactions?walletId=${walletId}&skip=${
+        `https://wallet-api-com.onrender.com/transactions?walletId=${walletId}&skip=${
           page * 10
         }&limit=${10}`
       );

@@ -38,7 +38,7 @@ const Home = (props: Props) => {
     }
     try {
       const { data } = await axios.get(
-        `http://localhost:3000/wallet/${walletId}`
+        `https://wallet-api-com.onrender.com/wallet/${walletId}`
       );
       setWalletData(data);
     } catch (err: any) {
@@ -60,7 +60,7 @@ const Home = (props: Props) => {
   }) => {
     setInititalizingWallet(true);
     try {
-      const { data } = await axios.post("http://localhost:3000/wallet/setup", {
+      const { data } = await axios.post("https://wallet-api-com.onrender.com/wallet/setup", {
         name: name,
         balance: Number(amount),
       });
@@ -76,7 +76,7 @@ const Home = (props: Props) => {
   const createTransaction = async (amount: number) => {
     try {
       const { data } = await axios.post(
-        `http://localhost:3000/transact/${walletData?.id}`,
+        `https://wallet-api-com.onrender.com/transact/${walletData?.id}`,
         { amount: amount }
       );
       setWalletData((val) => ({ ...val, balance: data.balance }));
