@@ -30,9 +30,9 @@ export enum TransactionType {
 const Home = (props: Props) => {
   const [walletData, setWalletData] = useState<WalletType>({} as WalletType);
   const [initializingWallet, setInititalizingWallet] = useState(false);
+  const walletId = localStorage.getItem("wallet_id");
 
   const fetchWallet = async () => {
-    const walletId = localStorage.getItem("wallet_id");
     if (!walletId) {
       return;
     }
@@ -60,10 +60,13 @@ const Home = (props: Props) => {
   }) => {
     setInititalizingWallet(true);
     try {
-      const { data } = await axios.post("https://wallet-api-com.onrender.com/wallet/setup", {
-        name: name,
-        balance: Number(amount),
-      });
+      const { data } = await axios.post(
+        "https://wallet-api-com.onrender.com/wallet/setup",
+        {
+          name: name,
+          balance: Number(amount),
+        }
+      );
       localStorage.setItem("wallet_id", data.id);
       setWalletData(data);
     } catch (err: any) {
@@ -90,7 +93,7 @@ const Home = (props: Props) => {
   return (
     <div className="page">
       <Container className="d-flex align-items-center justify-content-center h-50">
-        {walletData?.id ? (
+        {walletId || walletData?.id ? (
           <Wallet wallet={walletData} onSubmit={createTransaction} />
         ) : (
           <InitializeWallet
