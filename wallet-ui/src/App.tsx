@@ -13,7 +13,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/transactions" element={<Transactions />} />
+        <Route
+          path="/transactions"
+          element={
+            localStorage.getItem("wallet_id") ? (
+              <Transactions />
+            ) : (
+              <Navigate to="/home" />
+            )
+          }
+        />
       </Routes>
       <ToastContainer />
     </BrowserRouter>
