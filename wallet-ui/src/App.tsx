@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/home/transactions" element={<Transactions />} />
+        <Route path="/transactions" element={<Transactions />} />
       </Routes>
       <ToastContainer />
     </BrowserRouter>
