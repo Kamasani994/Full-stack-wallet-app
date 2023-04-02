@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
@@ -13,16 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
-        <Route
-          path="/transactions"
-          element={
-            localStorage.getItem("wallet_id") ? (
-              <Transactions />
-            ) : (
-              <Navigate to="/home" />
-            )
-          }
-        />
+        <Route path="/home/transactions" element={<Transactions />} />
       </Routes>
       <ToastContainer />
     </BrowserRouter>
