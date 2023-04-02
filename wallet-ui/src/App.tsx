@@ -8,7 +8,6 @@ import { ToastContainer } from "react-toastify";
 import Transactions from "./pages/Transactions";
 
 function App() {
-  const walletId = localStorage.getItem("wallet_id");
   return (
     <BrowserRouter>
       <Routes>
@@ -17,7 +16,7 @@ function App() {
         <Route
           path="/transactions"
           element={
-            walletId ? (
+            localStorage.getItem("wallet_id") ? (
               <Transactions />
             ) : (
               <Navigate to="/home" />
