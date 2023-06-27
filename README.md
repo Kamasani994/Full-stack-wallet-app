@@ -10,7 +10,7 @@ The wallet-UI project was bootstrapped with [Create React App](https://github.co
 
   
 
-The wallet-api project was developed by NestJS And Database is MySQL
+The wallet-api project was developed in NestJS And Database is MySQL
 
   
 
